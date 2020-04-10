@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta http-equiv="content-script-type" content="text/html; charset=utf-8">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="Sun,6 Jun 2006 00:00:00 GMT">
+<meta name="viewport" 
+
+content="width=device-width,
+
+ initial-scale=1,
+
+ maximum-scale=1, 
+
+ user-scalable=no" >
+<title>エマージェンシーコール</title>
+
+
+
+
+<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+<link rel="stylesheet" href="jquery.mobile-1.4.0.min.css" >
+<script src="jquery.mobile-1.4.0.min.js"></script>
+
+<link rel="stylesheet" href="jquery.mobile-1.4.0.min.css" >
+
+
+
+<script language="javascript">
+<!--  
+$(document).bind('mobileinit', function(){
+  $.mobile.page.prototype.options.domCache = false;
+  
+})
+
+
+	// Handler for navigating to the next page
+	function navnext( next ) {
+		$( ":mobile-pagecontainer" ).pagecontainer( "change", next + ".html", {
+			transition: "slide", reload :"true"
+		});
+	}
+
+	// Handler for navigating to the previous page
+	function navprev( prev ) {
+		$( ":mobile-pagecontainer" ).pagecontainer( "change", prev + ".html", {
+			transition: "slide",
+			reverse: true
+		});
+	}
+
+	// Navigate to the next page on swipeleft
+	$( document ).on( "swipeleft", ".ui-page", function( event ) {
+
+		var next = $( this ).jqmData( "next" );
+
+
+		if ( next && ( event.target.offsetParent.className.match(/panel/) == null)  && ( event.target.className.match(/panel/) == null)) {
+			navnext( next );
+		}
+	});
+
+	// The same for the navigating to the previous page
+	$( document ).on( "swiperight", ".ui-page", function( event ) {
+		var prev = $( this ).jqmData( "prev" );
+
+		if ( prev && ( event.target.offsetParent.className.match(/panel/) == null)  && ( event.target.className.match(/panel/) == null )) {
+			navprev( prev );
+		}
+	});
+
+
+
+
+function infoLoad() {
+ $('#info').load('info2.html');
+}
+
+$(document).bind('pageload', function(e,d){
+$('#info').load('info2.html');
+});
+
+
+$(document).bind('pageshow', function(e,d){
+$('#info').load('info2.html');
+});
+
+
+$(document).bind('pageinit', function(e,d){
+$('#info').load('info2.html');
+});
+
+  $(document).ready(function(){
+$('#info').load('info2.html');
+});
+-->
+</script>
+
+<style type="text/css">
+<!--
+#chkID, #selAll{
+    position: static;
+    left: 0.466em;
+    top: 50%;
+    width: 10px;
+    height: 15px;
+    margin: 0px 0px 0px;
+    outline: 0px none !important;
+    z-index: 1;
+}
+-->
+</style>
+
+</head>
+<body>
+
+    <div  data-role="page"  data-prev="" data-next="top_2">
+
+ <div id="panel" data-role="panel" data-display="overlay">
+  <div id="info"></div>
+ <script infoLoad();></script>
+
+  </div>
+
+
+
+<div data-role="header" id="home" style="background:#0070c0;" data-position="fixed">
+            <a href="info2.html"  data-rel="dialog" data-shadow="false" data-direction="reverse" data-role="button" class="jqm-deeplink ui-btn-right"  data-icon="grid" style="background:#0070c0;"><font size=1 color = "white">連絡先</font></a>
+<h1>
+        <font color = "white">ホーム</font>
+</h1>
+</div>
+
+
+
+<div data-role="collapsible" data-collapsed="false">
+    <h3>ユーザ絞込み</h3>
+    
+<form name="PcUserAnpiSyukeiSearchForm" method="POST" ><div><input type="hidden" name="org.apache.struts.taglib.html.TOKEN" value="b5a7a33b5eef0504c2af819959551310"></div>
+
+        
+        <h4>氏名</h4>
+        <input name="userName" maxlength="80" size="20" type="text">
+
+
+        <h4>グループ</h4>
+        <input name="buttonSelGroup" value="選択" type="submit" onClick="location.href='groupselect.htm'" data-icon="grid">
+                       <input type="button" name="btnReleaseGroup" value="表示･解除" disabled="disabled"  data-icon="delete">
+        
+        
+        [0件]
+        <br>
+        
+                <h4>所属部署</h4>
+        <input name="buttonSelBusyo" value="選択" type="submit" onClick="location.href='busyoselect.htm'" data-icon="grid">
+                       <input type="button" name="btnReleaseBusyo" value="表示･解除" disabled="disabled" data-icon="delete">
+        
+        
+        [0件]
+        <br>
+        
+                <h4>地域</h4>
+        <input name="btnSelArea" value="選択" type="submit" onClick="location.href='areaselect.htm'" data-icon="grid">
+                       <input type="button" name="btnReleaseArea" value="表示･解除" disabled="disabled" data-icon="delete">
+        
+        
+        [0件]
+        <br>
+
+
+         <div data-role="collapsible">
+               
+               <h4>検索ワード</h4>
+               
+                 
+                   
+                   <div >職位コード
+                     <select name="swordChoice"><option value="">(条件なし)</option>
+                       <option value="1,102100">106</option>
+<option value="1,102600">113</option>
+<option value="1,104000">131</option>
+<option value="1,104100">133</option>
+<option value="1,106000">195</option>
+<option value="1,106009">199</option>
+<option value="1,106100">200</option>
+<option value="1,106200">201</option>
+<option value="1,106300">202</option>
+<option value="1,106316">206</option>
+<option value="1,106317">207</option>
+<option value="1,106318">208</option>
+<option value="1,106319">209</option>
+<option value="1,106400">210</option>
+<option value="1,106500">211</option>
+<option value="1,106600">212</option>
+<option value="1,106700">213</option>
+<option value="1,106800">214</option>
+<option value="1,106815">215</option>
+<option value="1,106818">218</option>
+<option value="1,106819">219</option>
+<option value="1,106900">216</option>
+<option value="1,107000">217</option>
+<option value="1,107100">221</option>
+<option value="1,109701">333</option>
+<option value="1,110211">444</option></select>
+                   </div>
+                 
+                   
+                   <div>職位名称
+                     <select name="swordChoice"><option value="">(条件なし)</option>
+                       <option value="2,101800">部長</option>
+<option value="2,101900">保険計理人</option>
+<option value="2,102000">副本部長</option>
+<option value="2,102100">検査役</option>
+<option value="2,102200">医長</option>
+<option value="2,102210">主任医長</option>
+<option value="2,102211">担当医長</option>
+<option value="2,102300">部長（医務）</option>
+<option value="2,102400">審議役</option>
+<option value="2,102500">審議役（医務）</option>
+<option value="2,103000">医長補佐</option>
+<option value="2,103100">副支社長</option>
+<option value="2,103700">マネジャー</option>
+<option value="2,103710">マネジャーＦＰ</option>
+<option value="2,106100">オフィス長（外次）機関担当</option>
+<option value="2,106200">オフィス長（外次）実践室長</option>
+<option value="2,106300">オフィス長（外次）キャップ</option>
+<option value="2,106310">オフィス長（外次）支所担当</option>
+<option value="2,106320">オフィス長（外次）育成担当</option>
+<option value="2,106400">オフィス長（外務次長）</option>
+<option value="2,106500">オフィス長（機関担当）</option>
+<option value="2,106600">オフィス長（実践室長）</option>
+<option value="2,106700">オフィス長（キャップ）</option>
+<option value="2,106710">オフィス長（支所担当）</option>
+<option value="2,106720">オフィス長（育成担当）</option>
+<option value="2,106800">オフィス長</option>
+<option value="2,106900">アシスタントマネジャー</option>
+<option value="2,106910">アシスタントマネジャーＦＰ</option>
+<option value="2,107000">業務リーダー</option>
+<option value="2,107100">アソシエイト</option>
+<option value="2,107200">アソシエイト（医療・技術）</option>
+<option value="2,107300">アソシエイト（技能）</option>
+<option value="2,107900">技能職員</option>
+<option value="2,108000">収納保全職員</option>
+<option value="2,108100">生命保険面接士</option>
+<option value="2,108200">契約業務士Ｃ</option>
+<option value="2,108300">派遣社員</option>
+<option value="2,109000">嘱託収納員</option>
+<option value="2,109100">特別庶務嘱託</option>
+<option value="2,109200">オフィス長代理（総合）機関</option>
+<option value="2,109300">オフィス長代理（総合）支所</option>
+<option value="2,109400">オフィス長代理（総合）育成</option>
+<option value="2,109500">オフィス長代理（総合）業務</option>
+<option value="2,109600">オフィス長代理（総合）</option>
+<option value="2,109700">オフィス長代理（所長）支所</option>
+<option value="2,109800">オフィス長代理（所長）育成</option>
+<option value="2,109850">オフィス長代理（所長）</option>
+<option value="2,114400">アシストパートナー</option>
+<option value="2,114500">ドリームパートナー</option>
+<option value="2,114600">賛助店</option>
+<option value="2,114700">管理その他</option>
+<option value="2,114800">本社勤務者</option>
+<option value="2,114900">補佐役（医務）</option>
+<option value="2,115000">内勤その他</option>
+<option value="2,115100">外勤その他</option>
+<option value="2,115200">一般外勤</option>
+<option value="2,115300">ライフプランナー</option>
+<option value="2,115400">斡旋・完全転籍</option>
+<option value="2,115500">事務アシスタント</option>
+<option value="2,115510">事務嘱託</option>
+<option value="2,115700">渉外主事</option>
+<option value="2,115800">渉外主任</option>
+<option value="2,115900">常勤嘱託</option>
+<option value="2,115910">非常勤嘱託</option>
+<option value="2,116000">調査役</option>
+<option value="2,916000">オフィス長例外</option>
+<option value="2,916001">不明</option></select>
+                   </div>
+                 
+                   
+                   <div>大括り化職位
+                     <select name="swordChoice"><option value="">(条件なし)</option>
+                       <option value="3,1">管理職</option>
+<option value="3,2">役付</option>
+<option value="3,3">支部長・支部長代理</option>
+<option value="3,4">一般</option></select>
+                   </div>
+                 
+                   
+                   <div>大ブロック名称
+                     <select name="swordChoice"><option value="">(条件なし)</option>
+                       <option value="4,1">マーケ統括部</option>
+<option value="4,2">首都圏マーケ</option>
+<option value="4,3">名古屋マーケ</option>
+<option value="4,4">関西マーケ統</option>
+<option value="4,5">その他</option></select>
+                   </div>
+                 
+                   
+                   <div>小ブロック名称
+                     <select name="swordChoice"><option value="">(条件なし)</option>
+                       <option value="5,1">北海道</option>
+<option value="5,2">東北</option>
+<option value="5,3">北関東</option>
+<option value="5,4">甲信越・東海</option>
+<option value="5,5">埼玉</option>
+<option value="5,6">千葉</option>
+<option value="5,7">東京</option>
+<option value="5,8">神奈川</option>
+<option value="5,9">北陸・中部</option>
+<option value="5,10">愛知</option>
+<option value="5,11">近畿</option>
+<option value="5,12">大阪</option>
+<option value="5,13">中国・四国</option>
+<option value="5,14">北九州</option>
+<option value="5,15">南九州</option>
+<option value="5,16">その他</option></select>
+                   </div>
+                 
+                   
+                   <div >災害対策要員
+                     <select name="swordChoice"><option value="">(条件なし)</option>
+                       <option value="6,1">災害対策要員</option></select>
+                   </div>
+                 
+                   
+                   <div>検索ワード７
+                     <select name="swordChoice"><option value="">(条件なし)</option>
+                       <option value="7,1">選択１－修正してみました！</option>
+<option value="7,2">選択２－修正前</option></select>
+                   </div>
+                 
+               
+               
+         </div>
+        
+        <br>
+       <div data-role="collapsible">
+        <h4>安否条件</h4>
+        
+            
+                本人<br>
+                
+                
+                <select name="anpiChoice"><option selected="selected" value="">(条件なし)</option>
+                    
+                    <option value="1,0">未回答</option>
+                    <option value="1,129">無事</option>
+<option value="1,130">軽傷</option>
+<option value="1,131">重傷</option></select><br>
+            
+                家族<br>
+                
+                
+                <select name="anpiChoice"><option selected="selected" value="">(条件なし)</option>
+                    
+                    <option value="2,0">未回答</option>
+                    <option value="2,124">全員無事</option>
+<option value="2,125">軽傷者あり</option>
+<option value="2,126">重傷者あり</option>
+<option value="2,127">死亡者あり</option>
+<option value="2,128">未確認</option></select><br>
+            
+                家屋<br>
+                
+                
+                <select name="anpiChoice"><option selected="selected" value="">(条件なし)</option>
+                    
+                    <option value="3,0">未回答</option>
+                    <option value="3,132">被害なし</option>
+<option value="3,133">被害あり（居住可）</option>
+<option value="3,134">被害あり（居住不可）</option>
+<option value="3,135">未確認</option></select><br>
+            
+                出社<br>
+                
+                
+                <select name="anpiChoice"><option selected="selected" value="">(条件なし)</option>
+                    
+                    <option value="4,0">未回答</option>
+                    <option value="4,136">出社可</option>
+<option value="4,137">出社不可</option></select><br>
+            
+                家族不明<br>
+                
+                
+                <select name="anpiChoice"><option selected="selected" value="">(条件なし)</option>
+                    
+                    <option value="41,0">未回答</option>
+                    <option value="41,141">全員無事</option>
+<option value="41,142">負傷者</option>
+<option value="41,143">不明</option></select><br>
+            
+                無事ですか？<br>
+                
+                
+                <select name="anpiChoice"><option selected="selected" value="">(条件なし)</option>
+                    
+                    <option value="61,0">未回答</option>
+                    <option value="61,161">無事</option>
+<option value="61,162">そうでない</option></select><br>
+            
+        
+        <br>
+        <h3>メッセージ有無</h3>
+                <select name="anpiChoice"><option selected="selected" value="">(条件なし)</option>
+                    
+                    <option value="0">登録あり</option>
+                    <option value="1">登録なし</option></select>
+    <br>
+
+        
+</div>
+
+
+
+
+        <h4>回答有無</h4>
+                 <div>
+                   
+                   <input checked="checked" name="anpiStatus" value="2" onclick="disableObject(true);" id="anpiKbn2" type="radio">
+                   <label for="anpiKbn2">指定しない</label>
+                 </div>
+                 <div>
+                   
+                   <input name="anpiStatus" value="0" onclick="disableObject(true);" id="anpiKbn0" type="radio">
+                   <label for="anpiKbn0">未登録</label>
+                 </div>
+                 <div>
+                   
+                   <input  name="anpiStatus" value="1" onclick="disableObject(false);" id="anpiKbn1" type="radio">
+                   <label for="anpiKbn1">登録済み</label>
+                 </div>
+                 <div id="anpiRegistered" style="margin-left: 3em;">
+                   
+                   回答者
+                   
+                   
+                   
+                     <select disabled="disabled" name="anpiAnswerUser" id="anpiAnswerUser"><option selected="selected" value="1">本人</option>
+<option value="2">代理</option>
+<option value="3">本人または代理</option></select>
+                     <br>
+                     
+				<h4>安否回答日</h4>
+				        
+				        
+				<label for="startDate">開始日</label>
+				<input  name="startDate" id="date1" type="date" data-role="datebox" data-options='{"mode": "calbox"}'>        
+				        
+				    
+				        
+				<label for="endDate">終了日</label>
+				<input  name="endDater" id="date2" type="date" data-role="datebox" data-options='{"mode": "calbox"}'>
+  
+                   
+               </div>
+    <br>
+    <input name="buttonSearch" value="検索" type="submit" data-icon="search" style="background:#3646ec;">
+    </form>
+        
+    
+
+</div>
+
+   <div data-role="footer" align="center"  style="background:#0070c0;">
+   <font color="white">
+   (C)2014 INFOCOM
+   </font>
+   </div>
+   </div>
+
+</body></html>
