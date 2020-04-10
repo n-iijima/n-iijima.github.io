@@ -18,13 +18,6 @@ content="width=device-width,
  maximum-scale=1, 
 
  user-scalable=no" >
- 
-     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-　　<!-- vue.js　-->
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <link rel="manifest" href="manifest.json">
-    
 <title>エマージェンシーコール</title>
 
 
@@ -35,7 +28,6 @@ content="width=device-width,
 
 <link rel="stylesheet" href="jquery.mobile-1.4.0.min.css" >
 
-<link rel="stylesheet" href="bcpcard.css" >
 
 
 <script language="javascript">
@@ -126,32 +118,72 @@ $('#info').load('info.html');
 $('#info').load('info.html');
 });
 -->
-
-    <!-- service workerの登録関係 -->
-    if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service_worker.js').then(function(registration) {
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-    }).catch(function(err) {
-        console.log('ServiceWorker registration failed: ', err);
-    });
-    }
-    <!-- vue.jsの設定関係 -->
-    var app = new Vue({
-      el: '#app',
-      data: {
-        message: 'Hello Vue!'
-      },
-      methods: {
-        reverseMessage: function () {
-          this.message = this.message.split('').reverse().join('')
-        }
-      }
-    });
 </script>
 
 <style type="text/css">
 <!--
 
+body {
+    color: gray;
+}
+
+ .ui-btn{
+    color: #5F5F62;
+}
+
+ .ui-header{
+    background:#0070c0; text-shadow: 0px 1px 0px #111;
+    color:white;
+}
+ .ui-header>.ui-btn{
+    background:#0070c0; text-shadow: 0px 1px 0px #111;
+    color:white;
+}
+
+ .ui-footer{
+    background:#0070c0; text-shadow: 0px 1px 0px #111;
+}
+
+.ui-icon-cinfo:after{
+  background-image:url("./images/icons-svg/bullets-white.svg");
+background-size:20px 20px;
+-moz-border-radius: 0;
+-webkit-border-radius: 0;
+border-radius: 0;
+  background-color:transparent;
+
+}
+.ui-nosvg .ui-icon-cinfo:after{
+  background-image:url("./images/icons-png/bullets-white.png");
+  background-color:transparent;
+
+}
+test{
+  background:url("./images/anzen.png") no-repeat 0 5px;
+
+  -webkit-box-shadow:none;
+  box-shadow:none;
+  width: 15px;
+  height: 15px;
+}
+
+#top.ui-li-icon{
+  box-shadow:none;
+  max-width: 2em;
+  max-height: 2em;
+}
+
+
+#top.ui-btn {
+
+  text-align:center;
+  font-size:x-large;
+  
+}
+
+#top span{
+  font-size: small;
+}
 -->
 
 </style>
@@ -163,33 +195,33 @@ $('#info').load('info.html');
 
   </div>
 
-    <div  data-role="page"   data-prev="" data-next="card_1" class="bcpc">
+    <div  data-role="page"  data-theme="z" data-prev="" data-next="card_1">
 
 
-<div data-role="header" class="bcpc"  data-position="fixed">
+<div data-role="header" id="home"  data-position="fixed">
             <a href="#panel" data-shadow="false" data-direction="reverse" data-role="button" class="jqm-deeplink ui-btn-right" data-icon="cinfo" ><span>連絡先</span></a>
 <h1>
         <font>ホーム</font>
 </h1>
 </div>
-	<TABLE style="table-layout:fixed;" width="100%"><TR>
+	<TABLE style="table-layout:fixed;" width="100%" ><TR>
 			<TH></TH>
 			<TH>行動</TH>
 			<TH><font size="-1">災害発生後</font></TH>
 			</TR></TABLE>
 			
-	<ul  data-role="listview" id="top">
+	<ul id="index" data-role="listview">
 
 
-		<li><a rel="chapter" href="card_1.html" data-transition="slide"  class="top"><image src="./images/anzen.png" class="ui-li-icon top"/>身の安全<span class="ui-li-count">10秒</span></a>
+		<li><image src="./images/anzen.png"/ class="ui-li-icon" id="top"><a rel="chapter" href="card_1.html" data-transition="slide" id="top">身の安全<span class="ui-li-count">10秒</span></a>
 		</li>
-		<li><a rel="chapter" href="card_2.html" data-transition="slide"  class="top"><image src="./images/higai.png" class="ui-li-icon top"/>被害確認<span class="ui-li-count">1分</span></a>
+		<li><image src="./images/higai.png"/ class="ui-li-icon" id="top"><a rel="chapter" href="card_2.html" data-transition="slide"  id="top">被害確認<span class="ui-li-count">1分</span></a>
 		</li> 
-		<li><a rel="chapter" href="card_3.html" data-transition="slide"  class="top"><image src="./images/jyoho.png" class="ui-li-icon top"/>情報収集<span class="ui-li-count">10分</span></a>
+		<li><image src="./images/jyoho.png"/ class="ui-li-icon" id="top"><a rel="chapter" href="card_3.html" data-transition="slide"  id="top">情報収集<span class="ui-li-count">10分</span></a>
 		</li>
-		<li><a rel="chapter" href="card_4.html" data-transition="slide"  class="top"><image src="./images/anpi.png" class="ui-li-icon top"/>安否確認<span class="ui-li-count">15分</span></a>
+		<li><image src="./images/anpi.png"/ class="ui-li-icon" id="top"><a rel="chapter" href="card_4.html" data-transition="slide"  id="top">安否確認<span class="ui-li-count">15分</span></a>
 		</li> 
-		<li><a rel="chapter" href="card_5.html" data-transition="slide"  class="top"><image src="./images/kodo.png" class="ui-li-icon top"/>行動開始<span class="ui-li-count">20分</span></a>
+		<li><image src="./images/kodo.png"/ class="ui-li-icon" id="top"><a rel="chapter" href="card_5.html" data-transition="slide"  id="top">行動開始<span class="ui-li-count">20分</span></a>
 		</li> 
 		
 
@@ -201,7 +233,7 @@ $('#info').load('info.html');
     
 
 
-   <div data-role="footer" align="center"  class="bcpc"  data-position="fixed">
+   <div data-role="footer" align="center" >
     　
    </div>
    </div>

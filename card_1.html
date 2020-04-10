@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta http-equiv="content-script-type" content="text/html; charset=utf-8">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="Sun,6 Jun 2006 00:00:00 GMT">
+<meta name="viewport" 
+
+content="width=device-width,
+
+ initial-scale=1,
+
+ maximum-scale=1, 
+
+ user-scalable=no" >
+<title>エマージェンシーコール</title>
+
+
+
+
+<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+<link rel="stylesheet" href="jquery.mobile-1.4.0.min.css" >
+<script src="jquery.mobile-1.4.0.min.js"></script>
+
+<link rel="stylesheet" href="jquery.mobile-1.4.0.min.css" >
+
+<link rel="stylesheet" href="bcpcard.css" >
+
+
+<script language="javascript">
+<!--  
+$(document).bind('mobileinit', function(){
+  $.mobile.page.prototype.options.domCache = false;
+  
+})
+
+
+	// Handler for navigating to the next page
+	function navnext( next ) {
+		$( ":mobile-pagecontainer" ).pagecontainer( "change", next + ".html", {
+			transition: "slide", reload :"true"
+		});
+	}
+
+	// Handler for navigating to the previous page
+	function navprev( prev ) {
+		$( ":mobile-pagecontainer" ).pagecontainer( "change", prev + ".html", {
+			transition: "slide",
+			reverse: true
+		});
+	}
+
+	// Navigate to the next page on swipeleft
+	$( document ).on( "swipeleft", ".ui-page", function( event ) {
+
+		var next = $( this ).jqmData( "next" );
+
+
+		if ( next && ( event.target.offsetParent.className.match(/panel/) == null)  && ( event.target.className.match(/panel/) == null)) {
+			navnext( next );
+		}
+	});
+
+	// The same for the navigating to the previous page
+	$( document ).on( "swiperight", ".ui-page", function( event ) {
+		var prev = $( this ).jqmData( "prev" );
+
+		if ( prev && ( event.target.offsetParent.className.match(/panel/) == null)  && ( event.target.className.match(/panel/) == null )) {
+			navprev( prev );
+		}
+	});
+
+
+
+
+function infoLoad() {
+ $('#info').load('info.html');
+}
+
+$(document).bind('pageload', function(e,d){
+$('#info').load('info.html');
+});
+
+
+$(document).bind('pageshow', function(e,d){
+$('#info').load('info.html');
+  $('[data-role="panel"]').panel({ theme: 'a' });
+});
+
+
+$(document).bind('pageinit', function(e,d){
+$('#info').load('info.html');
+});
+
+  $(document).ready(function(){
+$('#info').load('info.html');
+});
+-->
+</script>
+
+<style type="text/css">
+<!--
+
+-->
+</style>
+
+</head>
+<body>
+ <div id="panel" data-role="panel" data-display="overlay" data-position-fixed="true">
+  <div id="info"></div>
+
+  </div>
+
+    <div  data-role="page"  data-prev="index" data-next="card_2"  class="bcpc">
+
+
+<div data-role="header" class="bcpc" data-position="fixed">
+            <a href="index.html" data-shadow="false" data-direction="reverse" data-role="button" class="jqm-deeplink ui-btn-leftt" id="home"><span>防災カード</span></a>
+            <a href="#panel" data-shadow="false" data-direction="reverse" data-role="button" class="jqm-deeplink ui-btn-right"  data-icon="cinfo" ><span>連絡先</span></a>
+<h1>身の安全</h1>
+</div>
+ <div align="center" >
+<ul data-role="listview">
+<li><strong>安全行動１－２－３</strong>
+<p>
+<image src="./images/hinan.png" /></p>
+</li>
+</ul>
+</div>
+
+	<table style="table-layout:fixed;" width="100%" class="card"><tr>
+			<th>被災場所別</th>
+			<th>安全行動</th>
+			<th><font size="-1"></font></th>
+			</tr></table>
+
+<div data-role="collapsible" data-collapsed="true"  data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right">
+    <h1><image src="./images/anzen.png"  class="card"/><span class="list">自宅・職場</span></h1>
+
+机やテーブルの下などで安全確保をして下さい。職場の場合は、放送などを聞き、所属組織の規則・指示に従い、冷静に行動して下さい。建物の被害がない時は、職場のビルが一時避難所です。むやみに動かないようにします。窓から離れて、物が落下してきたり、倒れてきたりしないかを確認します。
+
+</div>
+
+
+<div data-role="collapsible" data-collapsed="true"  data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right">
+    <h1><image src="./images/anzen.png"  class="card"/><span class="list">ビル</span></h1>
+
+窓から離れて、物が落下してきたり、倒れてきたりしないかを確認します。机やテーブルの下などで安全確保をして下さい。放送などを聞き、冷静に行動して下さい。非常口を利用し、階段から避難します。エレベーターは使用しません。
+
+</div>
+
+
+<div data-role="collapsible" data-collapsed="true"  data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right">
+    <h1><image src="./images/anzen.png"  class="card"/><span class="list">エレベータ</span></h1>
+
+行先階のボタンをすべて押して、最初に停止した階で降りましょう。閉じ込められたらインターフォンで連絡をします。
+
+
+</div>
+
+<div data-role="collapsible" data-collapsed="true"  data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right">
+    <h1><image src="./images/anzen.png"  class="card"/><span class="list">公共交通機関</span></h1>
+
+つり革・手すり等につかまって、乗務員の指示に従って行動します。あわてて、外へ飛び出したりすると怪我の元です。
+
+</div>
+
+<div data-role="collapsible" data-collapsed="true"  data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right">
+    <h1><image src="./images/anzen.png"  class="card"/><span class="list">運転中</span></h1>
+
+通行妨害を避けて停車。出来れば駐車場に停めるようにする。エンジンを止め、キーはつけたまま、連絡先をダッシュボードに置きロックせずに避難する。
+
+</div>
+
+<div data-role="collapsible" data-collapsed="true"  data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right">
+    <h1><image src="./images/anzen.png"  class="card"/><span class="list">デパート・スーパー・劇場など</span></h1>
+
+大きなガラスや重たいものからは離れて下さい。非常口を確認して、落下物や物が倒れて来ないかを注意して、放送などの指示に従って下さい。スーパーでは買い物かごを頭から被ると、ヘルメット替わりになるようです。
+
+</div>
+
+
+<div data-role="collapsible" data-collapsed="true"  data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right">
+    <h1><image src="./images/anzen.png"  class="card"/><span class="list">地下街</span></h1>
+
+煙が出たらハンカチを口に当て、低い姿勢で煙を吸い込まないように避難する。地上出口の場所を確認して外に向かうようにする。洪水などで水が入ってきた場合は、一刻も早く地上に出るようにする。
+
+</div>
+
+
+<div data-role="collapsible" data-collapsed="true"  data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right">
+    <h1><image src="./images/anzen.png"  class="card"/><span class="list">海岸・河川</span></h1>
+
+津波を避けるために、海岸を離れ、河川、低地を避けて高台に避難する。街の中：頭を鞄などで保護。空地、公園、学校などに避難。自動販売機や壁・屏には近づかない。
+
+</div>
+
+
+   <div data-role="footer"  data-position="fixed">
+   <div data-role="navbar">
+      <ul class="card">
+        <li><a href="card_1.html" class="ui-btn-active" data-icon="anzen">身の安全</a></li>
+        <li><a href="card_2.html" data-icon="higai">被害確認</a></li>
+        <li><a href="#" data-icon="jyoho">情報収集</a></li>
+        <li><a href="#" data-icon="anpi">安否確認</a></li>
+        <li><a href="#" data-icon="kodo">行動開始</a></li>
+      </ul>
+    </div>
+   </div>
+   </div>
+
+</body></html>

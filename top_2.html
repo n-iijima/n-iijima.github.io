@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta http-equiv="content-script-type" content="text/html; charset=utf-8">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="Sun,6 Jun 2006 00:00:00 GMT">
+<meta name="viewport" 
+
+content="width=device-width,
+
+ initial-scale=1,
+
+ maximum-scale=1, 
+
+ user-scalable=no" >
+<title>エマージェンシーコール</title>
+
+
+<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+<link rel="stylesheet" href="jquery.mobile-1.4.0.min.css" >
+<script src="jquery.mobile-1.4.0.min.js"></script>
+
+
+<script language="javascript">
+<!--  
+$(document).bind('mobileinit', function(){
+  $.mobile.page.prototype.options.domCache = false;
+  
+})
+
+	// Handler for navigating to the next page
+	function navnext( next ) {
+		$( ":mobile-pagecontainer" ).pagecontainer( "change", next + ".html", {
+			transition: "slide"
+		});
+	}
+
+	// Handler for navigating to the previous page
+	function navprev( prev ) {
+		$( ":mobile-pagecontainer" ).pagecontainer( "change", prev + ".html", {
+			transition: "slide",
+			reverse: true
+		});
+	}
+
+	// Navigate to the next page on swipeleft
+	$( document ).on( "swipeleft", ".ui-page", function( event ) {
+		var next = $( this ).jqmData( "next" );
+
+		if ( next && ( event.target.offsetParent.className.match(/panel/) == null)  && ( event.target.className.match(/panel/) == null)) {
+			navnext( next );
+		}
+	});
+
+	// The same for the navigating to the previous page
+	$( document ).on( "swiperight", ".ui-page", function( event ) {
+		var prev = $( this ).jqmData( "prev" );
+
+		if ( prev && ( event.target.offsetParent.className.match(/panel/) == null)  && ( event.target.className.match(/panel/) == null) ) {
+			navprev( prev );
+		}
+	});
+	
+	
+	
+function disableObject(data){
+
+
+
+    
+	if( data == true){
+	
+		$('#date1').textinput('disable');
+		$('#date2').textinput('disable');
+		$('#anpiAnswerUser').selectmenu('disable');
+	}
+	else{
+		$('#date1').textinput('enable');
+		$('#date2').textinput('enable');
+		$('#anpiAnswerUser').selectmenu('enable');
+	
+	}
+	
+
+
+
+}
+
+window.onload = function()
+{
+	if( $('#anpiKbn1').checked!="checked" ){
+		$('#date1').textinput('disable');
+		$('#date2').textinput('disable');
+		$('#date1').addClass('ui-disabled');
+		$('#date2').addClass('ui-disabled');
+		$('#anpiAnswerUser').selectmenu('disable');
+	}
+
+};
+
+$(function infoLoad() {
+ $('#info').load('info.html');
+});
+
+
+$(document).bind('pageload', function(e,d){
+$('#info').load('info.html');
+});
+-->
+</script>
+
+<style type="text/css">
+<!--
+#chkID, #selAll{
+    position: static;
+    left: 0.466em;
+    top: 50%;
+    width: 10px;
+    height: 15px;
+    margin: 0px 0px 0px;
+    outline: 0px none !important;
+    z-index: 1;
+}
+-->
+</style>
+
+</head>
+<body>
+    <div  data-role="page"  data-prev="top_1" data-next="index">
+
+  
+<div data-role="header" id="home"  style="background:#0070c0;" data-position="fixed">
+            <a href="index.html" data-shadow="false" data-direction="reverse" data-role="button" class="jqm-deeplink ui-btn-leftt"  data-icon="home" style="background:#0070c0;"></a>
+            <a href="#panel" data-ajax="false"  data-shadow="false" data-direction="reverse" data-role="button" class="jqm-deeplink ui-btn-right"  data-icon="grid" style="background:#0070c0;"><font size=1 color = "white">連絡先</font></a>
+<h1>
+        <font color = "white">ホーム2</font>
+</h1>
+</div>  
+
+
+<form name="PcUserAnpiSyukeiBusyoSyousaiForm" method="POST" action="https://v4demo01.emergencycall.jp/kaihatu/emcuser/pcuseranpisyukeibusyosyousaireload.do"><div><input type="hidden" name="org.apache.struts.taglib.html.TOKEN" value="984aa662f86847999df00d396ef9c7a3"></div>
+    <input type="hidden" name="direction" value="">
+    <input type="hidden" name="bid" value="">
+</form>
+
+
+  
+
+   <div data-role="collapsible" data-collapsed="false">
+
+    <h3>集計結果(21141件)</h3>
+
+
+  <div role="main" class="ui-content">
+            <br>
+            
+               <h4>本人</h4>
+                <ul data-role="listview"  data-inset="true">
+               <li>未回答:
+               21129名</li>
+               
+                   <li>無事:
+                       10名</li>
+                   <li>軽傷:
+                       
+                       1名</li>
+                       
+                   <li>重傷:
+                       1名</li>
+                       
+                   
+               </ul>
+            
+               <h4>家族</h4>
+               <ul data-role="listview" data-inset="true">
+               <li>未回答:
+               21129名</li>
+               
+               
+                   <li>全員無事:
+                       9名</li>
+               
+                   <li>軽傷者あり:
+                       
+                       1名</li>
+               
+                   <li>重傷者あり:
+                       
+                       0名</li>
+               
+                   <li>死亡者あり:
+                       
+                       2名</li>
+               
+                   <li>未確認:
+                  
+                       
+                       0名</li>
+            </ul>
+               <h4>家屋</h4>
+               <ul data-role="listview" data-inset="true">
+               <li>未回答:
+               21132名</li>
+               
+               
+                   <li>被害なし:
+                       
+                       7名</li>
+               
+                   <li>被害あり（居住可）:
+                       
+                       0名</li>
+               
+                   <li>被害あり（居住不可）:
+                       
+                       2名</li>
+               
+                   <li>未確認:
+                       
+                       0名</li>
+            </ul>
+               <h4>出社</h4>
+               <ul data-role="listview" data-inset="true">
+               <li>未回答:
+               21129名</li>
+               
+                   <li>出社可:
+                       
+                       6名</li>
+               
+                   <li>出社不可:
+                       
+                       6名</li>
+            </ul>
+               <h4>家族不明</h4>
+               <ul data-role="listview" data-inset="true">
+               <li>未回答:
+               21133名</li>
+               
+               
+                   <li>全員無事:
+                       6名</li>
+               
+                   <li>負傷者:
+                       
+                       1名</li>
+               
+                   <li>不明:
+                       
+                       1名</li>
+            </ul>
+               <h4>無事ですか？</h4>
+               <ul data-role="listview" data-inset="true">
+               <li>未回答:
+               21141名</li>
+               
+               
+                   <li>無事:
+                   
+                       
+                       0名</li>
+               
+                   <li>そうでない:
+                   
+                       
+                       0名</li>
+               </ul>
+               
+               
+        </div>
+        
+
+        </div>
+
+
+   <div data-role="footer" align="center"  style="background:#0070c0;" data-position="fixed">
+   <div data-role="navbar">
+      <ul>
+        <li><a href="top_1.html">ホーム</a></li>
+        <li><a href="top_2.html" class="ui-btn-active">設定</a></li>
+        <li><a href="#">ヘルプ</a></li>
+        <li><a href="#">問い合わせ</a></li>
+      </ul>
+    </div>
+   </div>
+   </div>
+
+</body></html>

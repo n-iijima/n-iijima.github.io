@@ -18,13 +18,6 @@ content="width=device-width,
  maximum-scale=1, 
 
  user-scalable=no" >
- 
-     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-　　<!-- vue.js　-->
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-    <link rel="manifest" href="manifest.json">
-    
 <title>エマージェンシーコール</title>
 
 
@@ -35,7 +28,6 @@ content="width=device-width,
 
 <link rel="stylesheet" href="jquery.mobile-1.4.0.min.css" >
 
-<link rel="stylesheet" href="bcpcard.css" >
 
 
 <script language="javascript">
@@ -126,31 +118,14 @@ $('#info').load('info.html');
 $('#info').load('info.html');
 });
 -->
-
-    <!-- service workerの登録関係 -->
-    if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('service_worker.js').then(function(registration) {
-        console.log('ServiceWorker registration successful with scope: ', registration.scope);
-    }).catch(function(err) {
-        console.log('ServiceWorker registration failed: ', err);
-    });
-    }
-    <!-- vue.jsの設定関係 -->
-    var app = new Vue({
-      el: '#app',
-      data: {
-        message: 'Hello Vue!'
-      },
-      methods: {
-        reverseMessage: function () {
-          this.message = this.message.split('').reverse().join('')
-        }
-      }
-    });
 </script>
 
 <style type="text/css">
 <!--
+
+
+
+
 
 -->
 
@@ -158,52 +133,29 @@ $('#info').load('info.html');
 
 </head>
 <body>
- <div id="panel" data-role="panel" data-display="overlay" data-position-fixed="true">
-  <div id="info"></div>
-
-  </div>
-
-    <div  data-role="page"   data-prev="" data-next="card_1" class="bcpc">
 
 
-<div data-role="header" class="bcpc"  data-position="fixed">
-            <a href="#panel" data-shadow="false" data-direction="reverse" data-role="button" class="jqm-deeplink ui-btn-right" data-icon="cinfo" ><span>連絡先</span></a>
-<h1>
-        <font>ホーム</font>
-</h1>
-</div>
-	<TABLE style="table-layout:fixed;" width="100%"><TR>
-			<TH></TH>
-			<TH>行動</TH>
-			<TH><font size="-1">災害発生後</font></TH>
-			</TR></TABLE>
+    <div  data-role="page"   data-prev="" data-next="card_1">
+
+
+
+
 			
-	<ul  data-role="listview" id="top">
+	<ul  data-role="listview">
 
 
-		<li><a rel="chapter" href="card_1.html" data-transition="slide"  class="top"><image src="./images/anzen.png" class="ui-li-icon top"/>身の安全<span class="ui-li-count">10秒</span></a>
+		<li><a  href="card_1.html"  ><image src="./images/anzen.png" class="ui-li-has-thumb" />身の安全</a>
 		</li>
-		<li><a rel="chapter" href="card_2.html" data-transition="slide"  class="top"><image src="./images/higai.png" class="ui-li-icon top"/>被害確認<span class="ui-li-count">1分</span></a>
-		</li> 
-		<li><a rel="chapter" href="card_3.html" data-transition="slide"  class="top"><image src="./images/jyoho.png" class="ui-li-icon top"/>情報収集<span class="ui-li-count">10分</span></a>
-		</li>
-		<li><a rel="chapter" href="card_4.html" data-transition="slide"  class="top"><image src="./images/anpi.png" class="ui-li-icon top"/>安否確認<span class="ui-li-count">15分</span></a>
-		</li> 
-		<li><a rel="chapter" href="card_5.html" data-transition="slide"  class="top"><image src="./images/kodo.png" class="ui-li-icon top"/>行動開始<span class="ui-li-count">20分</span></a>
-		</li> 
+
 		
+<li data-corners="false" data-shadow="false" data-iconshadow="true" data-wrapperels="div" data-icon="arrow-r" data-iconpos="right" data-theme="c" class="ui-btn ui-btn-icon-right ui-li-has-arrow ui-li ui-li-has-icon ui-btn-up-c"><div class="ui-btn-inner ui-li"><div class="ui-btn-text"><a href="#" class="ui-link-inherit"><img src="./images/anzen.png" class="ui-li-icon ui-li-thumb">Google</a></div><span class="ui-icon ui-icon-arrow-r ui-icon-shadow">&nbsp;</span></div></li>
+
+<li><a href="card_1.html"><img src="./images/anzen.png" class="ui-li-icon" />Google</a></li>
+
 
 	</ul>
 
 
-
-        
-    
-
-
-   <div data-role="footer" align="center"  class="bcpc"  data-position="fixed">
-    　
-   </div>
    </div>
 
 </body></html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<meta http-equiv="content-script-type" content="text/html; charset=utf-8">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="Sun,6 Jun 2006 00:00:00 GMT">
+<meta name="viewport" 
+
+content="width=device-width,
+
+ initial-scale=1,
+
+ maximum-scale=1, 
+
+ user-scalable=no" >
+<title>エマージェンシーコール</title>
+
+
+
+
+<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+<link rel="stylesheet" href="jquery.mobile-1.4.0.min.css" >
+<script src="jquery.mobile-1.4.0.min.js"></script>
+
+<link rel="stylesheet" href="jquery.mobile-1.4.0.min.css" >
+
+<link rel="stylesheet" href="bcpcard.css" >
+
+
+<script language="javascript">
+<!--  
+$(document).bind('mobileinit', function(){
+  $.mobile.page.prototype.options.domCache = false;
+  
+})
+
+
+	// Handler for navigating to the next page
+	function navnext( next ) {
+		$( ":mobile-pagecontainer" ).pagecontainer( "change", next + ".html", {
+			transition: "slide", reload :"true"
+		});
+	}
+
+	// Handler for navigating to the previous page
+	function navprev( prev ) {
+		$( ":mobile-pagecontainer" ).pagecontainer( "change", prev + ".html", {
+			transition: "slide",
+			reverse: true
+		});
+	}
+
+	// Navigate to the next page on swipeleft
+	$( document ).on( "swipeleft", ".ui-page", function( event ) {
+
+		var next = $( this ).jqmData( "next" );
+
+
+		if ( next && ( event.target.offsetParent.className.match(/panel/) == null)  && ( event.target.className.match(/panel/) == null)) {
+			navnext( next );
+		}
+	});
+
+	// The same for the navigating to the previous page
+	$( document ).on( "swiperight", ".ui-page", function( event ) {
+		var prev = $( this ).jqmData( "prev" );
+
+		if ( prev && ( event.target.offsetParent.className.match(/panel/) == null)  && ( event.target.className.match(/panel/) == null )) {
+			navprev( prev );
+		}
+	});
+
+
+
+
+function infoLoad() {
+ $('#info').load('info.html');
+}
+
+$(document).bind('pageload', function(e,d){
+$('#info').load('info.html');
+});
+
+
+$(document).bind('pageshow', function(e,d){
+$('#info').load('info.html');
+  $('[data-role="panel"]').panel({ theme: 'a' });
+});
+
+
+$(document).bind('pageinit', function(e,d){
+$('#info').load('info.html');
+});
+
+  $(document).ready(function(){
+$('#info').load('info.html');
+});
+-->
+</script>
+
+<style type="text/css">
+<!--
+
+-->
+</style>
+
+</head>
+<body>
+ <div id="panel" data-role="panel" data-display="overlay" data-position-fixed="true">
+  <div id="info"></div>
+
+  </div>
+
+    <div  data-role="page"  data-prev="card_1" data-next="card_3"  class="bcpc">
+
+
+<div data-role="header" class="bcpc" data-position="fixed">
+            <a href="index.html" data-shadow="false" data-direction="reverse" data-role="button" class="jqm-deeplink ui-btn-leftt" id="home"><span>防災カード</span></a>
+            <a href="#panel" data-shadow="false" data-direction="reverse" data-role="button" class="jqm-deeplink ui-btn-right"  data-icon="cinfo" ><span>連絡先</span></a>
+<h1>被害確認</h1>
+</div>
+ <div >
+<h3>揺れがおさまったら落ち着いて状況を確認しましょう</h3>
+
+</div>
+
+      <ul type="square">
+      <li  class="card3">
+      避難経路の確保
+      <ul class="card">
+        <li>ドアや窓を開けて避難経路を確保</li>
+
+      </ul></li>
+      
+      <br>
+      <li  class="card3">
+      ２次災害の防止
+      <ul class="card">
+
+        <li>火の元を確認</li>
+        <li>電気器具の電源をおとす</li>
+      </ul></li>
+      
+      <br>
+      <li  class="card3">
+      周囲の状況確認
+      <ul class="card">
+        <li>火災、負傷者の確認</li>
+        <li>被害確認</li>
+        <li>室内、建物の状況を確認</li>
+
+      </ul></li>
+      </ul>
+      
+      
+	<h3>対応方法</h3>
+
+
+<div data-role="collapsible" data-collapsed="true"  data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right">
+    <h1><image src="./images/anzen.png"  class="card"/><span class="list">火を見つけたら</span></h1>
+
+もし火災が発生した場合、天井に燃え移ってしまったら手遅れです。すぐに逃げる事。「火事だ！」と大声で叫び、隣近所にも協力を求め、初期消火に努めましょう。天井まで火が回ってない初期火災では、慌てずに火の始末をします。
+消火用具は普段からどこにおいてあるかをチェックしておくと共に、使い方を習っておきましょう。地域の防災訓練などで、消火器の使い方の練習もできますので、一度経験しておけば良いでしょう。また、普段から小さな地震でも火を消す習慣をつけましょう。
+
+
+</div>
+
+
+<div data-role="collapsible" data-collapsed="true"  data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right">
+    <h1><image src="./images/anzen.png"  class="card"/><span class="list">応急手当
+</span></h1>
+
+	<table  class="card" id="aid">
+	<tr><td class="card index">倒れている人を発見</td>
+	<td  class="card">反応がなければ、近くの人に119番通報とaed搬送を依頼し、気道確保をせずに呼吸の確認 （胸と腹部の動きを見る）</td></tr>
+	<tr><td class="card index" rowspan="2">心肺蘇生</td>
+	<td class="card">段通りの呼吸がなければ、胸骨圧迫３０回 
+</td></tr>
+	<tr>
+	<td class="card">胸骨圧迫が終わったら、気道確保と人工呼吸２回 （その後は、胸骨圧迫と人工呼吸2回を繰り返し行う） 
+</td></tr>
+	<tr><td class="card index">aed到着</td>
+	<td class="card">aedの小児用電極パッドを貼る対象は、おおよそ６歳ぐらいまで乳児に対してaedを使用できる 
+</td></tr>	</table>
+
+</div>
+
+
+<div data-role="collapsible" data-collapsed="true"  data-collapsed-icon="arrow-d" data-expanded-icon="arrow-u" data-iconpos="right">
+    <h1><image src="./images/anzen.png"  class="card"/><span class="list">出口の確保をする</span></h1>
+
+地震の揺れが大きいとドアや窓が変形して開かなくなり、室内に閉じ込められることがあります。身の安全が確保されたら、揺れの合間をみてドアや窓を少し開け、逃げ口を確保しましょう。もし、マンションや高層団地でドアが歪んで開かなくなってしまった時の為に、ハンマーなどを事前に用意しておく事も必要です。
+大地震でガラス等が割れて散乱している場合室内でも底厚の靴をはくのが良いですが、靴を取りに行けない場合は、座布団や布団などを上に敷いて、怪我をしないように靴を取りに行って下さい。
+
+
+
+
+</div>
+
+
+   <div data-role="footer"  data-position="fixed">
+   <div data-role="navbar">
+      <ul class="card">
+        <li><a href="card_1.html"  data-icon="anzen">身の安全</a></li>
+        <li><a href="card_2.html" class="ui-btn-active" data-icon="higai">被害確認</a></li>
+        <li><a href="#" data-icon="jyoho">情報収集</a></li>
+        <li><a href="#" data-icon="anpi">安否確認</a></li>
+        <li><a href="#" data-icon="kodo">行動開始</a></li>
+      </ul>
+    </div>
+   </div>
+   </div>
+
+</body></html>
